@@ -56,6 +56,74 @@ Whether you’re looking to:
 
 ---
 
+## 📂 Project Structure
+
+```
+sakurachat-bot/
+├── uwu.py                 # Main entry point
+├── requirements.txt       # Dependencies
+├── Dockerfile            # Docker container configuration
+├── Meow.yaml             # Deployment configuration
+├── Procfile              # Process file for deployment
+├── README.md             # Project documentation
+└── Sakura/               # Core bot package
+    ├── __init__.py        # Package initialization and exports
+    ├── application.py     # Main application setup and initialization
+    │
+    ├── Core/              # Core functionality and utilities
+    │   ├── __init__.py
+    │   ├── config.py      # Configuration and environment variables
+    │   ├── logging.py     # Custom colored logging setup
+    │   ├── utils.py       # General utility functions
+    │   ├── helpers.py     # Bot-specific helper functions
+    │   ├── errors.py      # Error handling and custom exceptions
+    │   ├── server.py      # Dummy HTTP server for deployment
+    │   └── authentication.py # Owner/user authentication
+    │
+    ├── Storage/           # Data management and persistence
+    │   ├── __init__.py
+    │   ├── database.py    # PostgreSQL database operations
+    │   ├── valkey.py      # Valkey/Redis cache operations
+    │   ├── sessions.py    # User session management
+    │   ├── cache.py       # Caching layer and utilities
+    │   ├── storage.py     # Data constants and storage utilities
+    │   └── conversation.py # Conversation history management
+    │
+    ├── AI/                # AI integrations and responses
+    │   ├── __init__.py
+    │   ├── response.py    # Main AI response coordination
+    │   ├── gemini.py      # Google Gemini AI client
+    │   ├── openrouter.py  # OpenRouter AI client
+    │   ├── prompts.py     # Character prompts and AI instructions
+    │   ├── images.py      # Image analysis and processing
+    │   └── polls.py       # Poll analysis functionality
+    │
+    ├── Interface/         # User interface and interactions
+    │   ├── __init__.py
+    │   ├── handlers.py    # Message and update handlers
+    │   ├── commands.py    # Command implementations
+    │   ├── callbacks.py   # Callback query handlers
+    │   ├── keyboards.py   # Inline keyboard creation
+    │   ├── buttons.py     # Button layouts and configurations
+    │   ├── messages.py    # Message templates and constants
+    │   ├── reactions.py   # Emoji reactions and contextual responses
+    │   ├── stickers.py    # Sticker handling and responses
+    │   ├── effects.py     # Telethon effects and animations
+    │   ├── typing.py      # Chat action indicators
+    │   └── updates.py     # Update processing and routing
+    │
+    └── Features/          # Bot features and specialized functions
+        ├── __init__.py
+        ├── broadcast.py   # Broadcasting to users/groups
+        ├── payments.py    # Telegram Stars payment handling
+        ├── tracking.py    # User and chat tracking
+        ├── limiter.py     # Rate limiting and spam protection
+        ├── cleanup.py     # Memory and data cleanup tasks
+        └── stats.py       # Bot statistics and monitoring
+```
+
+---
+
 ## 🌸 Sakura Bot
 
 A cute and charming Telegram bot that brings soft chats, sweet flirts, and a cozy vibe to your day.

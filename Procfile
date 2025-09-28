@@ -1,1 +1,1 @@
-start: python sakurachat.py
+web: python uwu.py
