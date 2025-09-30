@@ -2,12 +2,12 @@ from telegram import Update, ChatMember
 from telegram.ext import ContextTypes
 from telegram.error import BadRequest, Forbidden
 from Sakura.Core.helpers import fetch_user, log_action, get_mention
-from Sakura.Interface.keyboards import info_menu, help_menu
-from Sakura.Interface.messages import START_MESSAGES, HELP_MESSAGES, BROADCAST_MESSAGES
-from Sakura.Interface.typing import send_typing
-from Sakura.AI.response import get_response
-from Sakura.Interface.effects import send_effect
-from Sakura.Features.payments import send_invoice
+from Sakura.Handlers.keyboards import info_menu, help_menu
+from Sakura.Handlers.messages import START_MESSAGES, HELP_MESSAGES, BROADCAST_MESSAGES
+from Sakura.Handlers.typing import send_typing
+from Sakura.Chat.response import get_response
+from Sakura.Handlers.effects import send_effect
+from Sakura.Services.payments import send_invoice
 from Sakura import state
 from Sakura.Core.config import OWNER_ID
 
@@ -162,7 +162,7 @@ async def stats_refresh(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
         log_action("INFO", "🔄 Stats refresh callback received from owner", user_info)
         await query.answer("🔄 Refreshing statistics...", show_alert=False)
 
-        from Sakura.Features.stats import send_stats
+        from Sakura.Services.stats import send_stats
         stats_message, reply_markup = await send_stats(query.message.chat.id, context, is_refresh=True)
 
         await query.edit_message_text(

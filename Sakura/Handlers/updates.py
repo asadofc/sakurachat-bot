@@ -1,7 +1,7 @@
 from telegram import Update, ChatMember
 from telegram.ext import ContextTypes
 from Sakura.Core.logging import logger
-from Sakura.Storage.database import remove_user, remove_group
+from Sakura.Database.database import remove_user, remove_group
 
 async def handle_member(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handle when a user blocks the bot or the bot is removed from a group."""

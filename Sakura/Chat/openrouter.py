@@ -4,11 +4,11 @@ from typing import Optional, Dict
 from openai import OpenAI
 from Sakura.Core.config import OPENROUTER_API_KEY, MODEL, OWNER_ID
 from Sakura.Core.logging import logger
-from Sakura.Storage.conversation import get_history
-from Sakura.AI.prompts import SAKURA_PROMPT, LOVELY_SAKURA_PROMPT
+from Sakura.Database.conversation import get_history
+from Sakura.Chat.prompts import SAKURA_PROMPT, LOVELY_SAKURA_PROMPT
 from Sakura import state
 
-def initialize_openrouter_client():
+def init_openrouter():
     """Initialize OpenRouter client"""
     if OPENROUTER_API_KEY:
         try:

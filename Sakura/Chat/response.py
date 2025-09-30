@@ -1,9 +1,9 @@
 from typing import Optional, Dict
 
-from Sakura.AI.gemini import analyze_image, gemini_response
-from Sakura.AI.openrouter import openrouter_response
+from Sakura.Chat.gemini import analyze_image, gemini_response
+from Sakura.Chat.openrouter import openrouter_response
 from Sakura.Core.helpers import log_action, get_error
-from Sakura.Storage.conversation import add_history
+from Sakura.Database.conversation import add_history
 from Sakura import state
 
 async def get_response(user_message: str, user_name: str = "", user_info: Dict[str, any] = None, user_id: int = None, image_bytes: Optional[bytes] = None) -> str:

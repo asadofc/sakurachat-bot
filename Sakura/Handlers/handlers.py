@@ -2,20 +2,20 @@ import asyncio
 from telegram import Update
 from telegram.ext import ContextTypes
 from Sakura.Core.helpers import fetch_user, log_action, should_reply, get_error, log_response
-from Sakura.Features.limiter import check_limit
-from Sakura.Interface.reactions import handle_reaction
-from Sakura.AI.images import reply_image
-from Sakura.AI.polls import reply_poll
-from Sakura.Interface.typing import send_typing
-from Sakura.AI.response import get_response
-from Sakura.Features.broadcast import execute_broadcast
+from Sakura.Services.limiter import check_limit
+from Sakura.Handlers.reactions import handle_reaction
+from Sakura.Chat.images import reply_image
+from Sakura.Chat.polls import reply_poll
+from Sakura.Handlers.typing import send_typing
+from Sakura.Chat.response import get_response
+from Sakura.Services.broadcast import execute_broadcast
 from Sakura import state
 from Sakura.Core.config import OWNER_ID
-from Sakura.Interface.commands import ping_command
-from Sakura.Interface.stickers import handle_sticker
-from Sakura.Interface.image import handle_image
-from Sakura.Interface.poll import handle_poll
-from Sakura.Features.tracking import track_user
+from Sakura.Handlers.commands import ping_command
+from Sakura.Handlers.stickers import handle_sticker
+from Sakura.Handlers.image import handle_image
+from Sakura.Handlers.poll import handle_poll
+from Sakura.Services.tracking import track_user
 
 async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handle text and media messages with AI response"""

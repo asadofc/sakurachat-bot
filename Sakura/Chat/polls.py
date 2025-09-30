@@ -3,13 +3,13 @@ import asyncio
 from typing import Optional, Dict
 from telegram import Update
 from telegram.ext import ContextTypes
-from Sakura.AI.prompts import SAKURA_PROMPT, LOVELY_SAKURA_PROMPT
+from Sakura.Chat.prompts import SAKURA_PROMPT, LOVELY_SAKURA_PROMPT
 from Sakura.Core.config import OWNER_ID, MODEL
 from Sakura.Core.helpers import log_action
-from Sakura.Interface.effects import animate_reaction
-from Sakura.Interface.reactions import CONTEXTUAL_REACTIONS
-from Sakura.Interface.typing import send_typing
-from Sakura.Storage.conversation import add_history, get_history
+from Sakura.Handlers.effects import animate_reaction
+from Sakura.Handlers.reactions import CONTEXTUAL_REACTIONS
+from Sakura.Handlers.typing import send_typing
+from Sakura.Database.conversation import add_history, get_history
 from Sakura import state
 
 POLL_ANALYSIS_TRIGGERS = [

@@ -15,7 +15,7 @@ from Sakura.Core.utils import validate_config
 from Sakura.Core.errors import handle_error
 from Sakura.Storage.database import connect_database, close_database
 from Sakura.Storage.valkey import connect_cache, close_cache
-from Sakura.Interface.effects import start_effects, stop_effects, initialize_effects_client
+from Sakura.Handlers.effects import start_effects, stop_effects, init_effects
 from Sakura.Features.cleanup import cleanup_conversations
 from Sakura.Interface.commands import (
     start_command,
@@ -39,8 +39,8 @@ from Sakura.Features.payments import (
 )
 from Sakura.Interface.handlers import handle_messages
 from Sakura.Interface.updates import handle_member
-from Sakura.AI.gemini import initialize_gemini_client
-from Sakura.AI.openrouter import initialize_openrouter_client
+from Sakura.Chat.gemini import init_gemini
+from Sakura.Chat.openrouter import init_openrouter
 from Sakura import state
 
 async def setup_commands(application: Application) -> None:
@@ -89,9 +89,9 @@ def run_bot() -> None:
 
     logger.info("🚀 Initializing Sakura Bot...")
 
-    initialize_effects_client()
-    initialize_gemini_client()
-    initialize_openrouter_client()
+    init_effects()
+    init_gemini()
+    init_openrouter()
 
     application = Application.builder().token(BOT_TOKEN).concurrent_updates(True).build()
 
