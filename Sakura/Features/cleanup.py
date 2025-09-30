@@ -13,17 +13,18 @@ async def cleanup_conversations():
             current_time = time.time()
             conversations_cleaned = 0
 
-            expired_users = [
-                user_id for user_id, last_response_time in state.user_last_response_time.items()
-                if current_time - last_response_time > OLD_CHAT
-            ]
+            # Iterate over a copy of conversation history keys to allow deletion
+            for user_id in list(state.conversation_history.keys()):
+                last_response_time = state.user_last_response_time.get(user_id)
 
-            for user_id in expired_users:
-                if user_id in state.conversation_history:
-                    del state.conversation_history[user_id]
-                    conversations_cleaned += 1
-                if user_id in state.user_last_response_time:
-                    del state.user_last_response_time[user_id]
+                # Clean up if response time is recorded and it's expired
+                if last_response_time is not None and \
+                   (current_time - last_response_time > OLD_CHAT):
+                    if user_id in state.conversation_history:
+                        del state.conversation_history[user_id]
+                        conversations_cleaned += 1
+                    if user_id in state.user_last_response_time:
+                        del state.user_last_response_time[user_id]
 
             if conversations_cleaned > 0:
                 logger.info(f"🧹 Cleaned {conversations_cleaned} old conversations")

@@ -64,6 +64,8 @@ async def execute_broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE, 
                 failed_count += 1
                 if target_name == "users":
                     await remove_user(target_id)
+                elif target_name == "groups":
+                    await remove_group(target_id)
             except BadRequest as e:
                 failed_count += 1
                 if "chat not found" in str(e).lower():

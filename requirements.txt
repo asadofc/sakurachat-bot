@@ -1,13 +1,13 @@
+psutil
+openai
 cryptg
 uvloop
 valkey
-psutil
-asyncpg
-aiohttp[speedups]
 orjson
+asyncpg
 requests
 tgcrypto
 telethon
 google-genai
+aiohttp[speedups]
 python-telegram-bot
-openai
