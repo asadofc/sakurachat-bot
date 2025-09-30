@@ -5,12 +5,12 @@ from google import genai
 from Sakura.Core.config import GEMINI_API_KEY, OWNER_ID, CACHE_TTL
 from Sakura.Core.logging import logger
 from Sakura.Core.helpers import log_action, get_fallback, get_error
-from Sakura.Storage.conversation import get_context
-from Sakura.Storage.cache import get_cache, set_cache
-from Sakura.AI.prompts import SAKURA_PROMPT, LOVELY_SAKURA_PROMPT
+from Sakura.Database.conversation import get_context
+from Sakura.Database.cache import get_cache, set_cache
+from Sakura.Chat.prompts import SAKURA_PROMPT, LOVELY_SAKURA_PROMPT
 from Sakura import state
 
-def initialize_gemini_client():
+def init_gemini():
     """Initialize Gemini client"""
     try:
         state.gemini_client = genai.Client(api_key=GEMINI_API_KEY)

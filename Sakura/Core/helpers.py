@@ -3,7 +3,7 @@ import time
 from typing import Dict
 from telegram import Message, Update
 from Sakura.Core.logging import logger
-from Sakura.Interface.messages import RESPONSES, ERROR
+from Sakura.Handlers.messages import RESPONSES, ERROR
 from Sakura import state
 from Sakura.Core.config import SESSION_TTL
 

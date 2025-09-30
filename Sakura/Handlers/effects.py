@@ -13,7 +13,7 @@ EFFECTS = [
     "5159385139981059251"
 ]
 
-def initialize_effects_client():
+def init_effects():
     """Initialize Telethon client for effects"""
     if os.path.exists('sakura_effects.session'):
         os.remove('sakura_effects.session')

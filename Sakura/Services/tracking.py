@@ -1,6 +1,6 @@
 from telegram import Update
 from Sakura.Core.helpers import log_action
-from Sakura.Storage.database import save_user, save_group
+from Sakura.Database.database import save_user, save_group
 from Sakura import state
 
 def track_user(update: Update, user_info: dict) -> None:

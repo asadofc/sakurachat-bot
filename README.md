@@ -80,16 +80,16 @@ sakurachat-bot/
     │   ├── server.py      # Dummy HTTP server for deployment
     │   └── authentication.py # Owner/user authentication
     │
-    ├── Storage/           # Data management and persistence
+    ├── Database/          # Data management and persistence
     │   ├── __init__.py
     │   ├── database.py    # PostgreSQL database operations
     │   ├── valkey.py      # Valkey/Redis cache operations
     │   ├── sessions.py    # User session management
     │   ├── cache.py       # Caching layer and utilities
-    │   ├── storage.py     # Data constants and storage utilities
+    │   ├── constants.py   # Data constants and storage utilities
     │   └── conversation.py # Conversation history management
     │
-    ├── AI/                # AI integrations and responses
+    ├── Chat/              # AI integrations and responses
     │   ├── __init__.py
     │   ├── response.py    # Main AI response coordination
     │   ├── gemini.py      # Google Gemini AI client
@@ -98,7 +98,7 @@ sakurachat-bot/
     │   ├── images.py      # Image analysis and processing
     │   └── polls.py       # Poll analysis functionality
     │
-    ├── Interface/         # User interface and interactions
+    ├── Handlers/          # User interface and interactions
     │   ├── __init__.py
     │   ├── handlers.py    # Message and update handlers
     │   ├── commands.py    # Command implementations
@@ -112,7 +112,7 @@ sakurachat-bot/
     │   ├── typing.py      # Chat action indicators
     │   └── updates.py     # Update processing and routing
     │
-    └── Features/          # Bot features and specialized functions
+    └── Services/          # Bot features and specialized functions
         ├── __init__.py
         ├── broadcast.py   # Broadcasting to users/groups
         ├── payments.py    # Telegram Stars payment handling
